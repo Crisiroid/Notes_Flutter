@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
 
@@ -51,15 +51,20 @@ class aboutMe extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
-              IconButton(
-                onPressed: () {
-                  Navigator.pop(context, 'refresh');
-                },
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.white,
+              CircleAvatar(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context, 'refresh');
+                    },
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                    ),
+                    hoverColor: Colors.black,
+                  ),
                 ),
-                hoverColor: Colors.black,
               ),
             ]),
           ),
