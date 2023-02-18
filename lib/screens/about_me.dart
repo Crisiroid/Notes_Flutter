@@ -10,6 +10,7 @@ class aboutMe extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Center(
+          //about me page
           child: Container(
             margin: EdgeInsets.only(top: 10),
             child:
