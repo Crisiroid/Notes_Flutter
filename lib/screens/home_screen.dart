@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes/screens/about_me.dart';
 import 'package:notes/screens/input_screen.dart';
+import 'package:notes/screens/view_note.dart';
 import 'package:notes/utils/databaseHelper.dart';
 
 class homeScreen extends StatefulWidget {
@@ -75,6 +76,21 @@ class _homeScreenState extends State<homeScreen> {
                                     crossAxisCount: 2),
                             itemBuilder: (context, index) {
                               return GestureDetector(
+                                onTap: () async {
+                                  String refresh = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => view_note(
+                                        title: snapshot.data![index].title,
+                                        note: snapshot.data![index].note,
+                                      ),
+                                    ),
+                                  );
+
+                                  if (refresh == 'refresh') {
+                                    changeData();
+                                  }
+                                },
                                 onLongPress: () {
                                   setState(() {
                                     databaseHelper.instance
